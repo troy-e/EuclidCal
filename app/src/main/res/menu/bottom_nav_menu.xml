@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_two"
+        android:icon="@drawable/square"
+        android:title="2D Shapes"/>
+
+    <item
+        android:id="@+id/navigation_three"
+        android:icon="@drawable/cube"
+        android:title="3D Shapes"/>
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/circle"
+        android:title="Profile"/>
+
+</menu>
