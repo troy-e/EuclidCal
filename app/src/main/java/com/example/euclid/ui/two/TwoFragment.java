@@ -37,6 +37,9 @@ public class TwoFragment extends Fragment {
         shapes.add(new Shape("Circle"));
         shapes.add(new Shape("Square"));
         shapes.add(new Shape("Rectangle"));
+        shapes.add(new Shape("Triangle"));
+        shapes.add(new Shape("Parallelogram"));
+        shapes.add(new Shape("Trapezoid"));
         // Add more 2D shapes as needed
         return shapes;
     }

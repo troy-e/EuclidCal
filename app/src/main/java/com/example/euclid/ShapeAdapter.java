@@ -54,6 +54,17 @@ public class ShapeAdapter extends RecyclerView.Adapter<ShapeAdapter.ShapeViewHol
             case "Rectangle":
                 holder.shapeImage.setImageResource(R.drawable.rectangle); // Replace with your drawable resource
                 break;
+            case "Triangle":
+                holder.shapeImage.setImageResource(R.drawable.triangle); // Replace with your drawable resource
+                break;
+            case "Parallelogram":
+                holder.shapeImage.setImageResource(R.drawable.parallelogam); // Replace with your drawable resource
+                break;
+            case "Trapezoid":
+                holder.shapeImage.setImageResource(R.drawable.trapezoid); // Replace with your drawable resource
+                break;
+
+            //*******************3D SHAPES GOES HERE******************************
             case "Sphere":
                 holder.shapeImage.setImageResource(R.drawable.sphere); // Replace with your drawable resource
                 break;
@@ -62,6 +73,15 @@ public class ShapeAdapter extends RecyclerView.Adapter<ShapeAdapter.ShapeViewHol
                 break;
             case "Cylinder":
                 holder.shapeImage.setImageResource(R.drawable.cylinder); // Replace with your drawable resource
+                break;
+            case "Prism":
+                holder.shapeImage.setImageResource(R.drawable.hexprism); // Replace with your drawable resource
+                break;
+            case "Pyramid":
+                holder.shapeImage.setImageResource(R.drawable.pyramid); // Replace with your drawable resource
+                break;
+            case "Cuboid":
+                holder.shapeImage.setImageResource(R.drawable.cuboid); // Replace with your drawable resource
                 break;
             // Add more cases for other shapes if needed
         }
@@ -98,6 +118,7 @@ public class ShapeAdapter extends RecyclerView.Adapter<ShapeAdapter.ShapeViewHol
 
         EditText input1 = dialogView.findViewById(R.id.input1);
         EditText input2 = dialogView.findViewById(R.id.input2);
+        EditText input3 = dialogView.findViewById(R.id.input3);
         TextView result = dialogView.findViewById(R.id.result);
         Button backButton = dialogView.findViewById(R.id.back_button);
         ImageView shapeImage = dialogView.findViewById(R.id.shape_image);
@@ -106,26 +127,65 @@ public class ShapeAdapter extends RecyclerView.Adapter<ShapeAdapter.ShapeViewHol
         switch (shape.getName()) {
             case "Circle":
                 input2.setVisibility(View.GONE);
+                input3.setVisibility(View.GONE);
                 shapeImage.setImageResource(R.drawable.circle); // Replace with your drawable resource
                 break;
             case "Square":
                 input2.setVisibility(View.GONE);
+                input3.setVisibility(View.GONE);
                 shapeImage.setImageResource(R.drawable.square); // Replace with your drawable resource
                 break;
             case "Rectangle":
                 input2.setVisibility(View.VISIBLE);
+                input3.setVisibility(View.GONE);
                 shapeImage.setImageResource(R.drawable.rectangle); // Replace with your drawable resource
                 break;
-            case "Sphere":
+            case "Trapezoid":
                 input2.setVisibility(View.VISIBLE);
+                input3.setVisibility(View.VISIBLE);
+                shapeImage.setImageResource(R.drawable.trapezoid); // Replace with your drawable resource
+                break;
+            case "Parallelogram":
+                input2.setVisibility(View.VISIBLE);
+                input3.setVisibility(View.GONE);
+                shapeImage.setImageResource(R.drawable.parallelogam); // Replace with your drawable resource
+                break;
+            case "Triangle":
+                input2.setVisibility(View.VISIBLE);
+                input3.setVisibility(View.VISIBLE);
+                shapeImage.setImageResource(R.drawable.triangle); // Replace with your drawable resource
+                break;
+
+
+            //**************************3D SHAPE GOES HERE!!!
+            case "Sphere":
+                input2.setVisibility(View.GONE);
+                input3.setVisibility(View.GONE);
                 shapeImage.setImageResource(R.drawable.sphere); // Replace with your drawable resource
                 break;
             case "Cube":
-                input2.setVisibility(View.VISIBLE);
+                input2.setVisibility(View.GONE);
+                input3.setVisibility(View.GONE);
                 shapeImage.setImageResource(R.drawable.cube); // Replace with your drawable resource
+                break;
+            case "Prism":
+                input2.setVisibility(View.VISIBLE);
+                input3.setVisibility(View.GONE);
+                shapeImage.setImageResource(R.drawable.hexprism); // Replace with your drawable resource
+                break;
+            case "Cuboid":
+                input2.setVisibility(View.VISIBLE);
+                input3.setVisibility(View.VISIBLE);
+                shapeImage.setImageResource(R.drawable.cuboid); // Replace with your drawable resource
+                break;
+            case "Pyramid":
+                input2.setVisibility(View.VISIBLE);
+                input3.setVisibility(View.GONE);
+                shapeImage.setImageResource(R.drawable.pyramid); // Replace with your drawable resource
                 break;
             case "Cylinder":
                 input2.setVisibility(View.VISIBLE);
+                input3.setVisibility(View.GONE);
                 shapeImage.setImageResource(R.drawable.cylinder); // Replace with your drawable resource
                 break;
             // Add more cases for other shapes if needed
@@ -139,6 +199,7 @@ public class ShapeAdapter extends RecyclerView.Adapter<ShapeAdapter.ShapeViewHol
                 try {
                     double value1 = Double.parseDouble(input1.getText().toString());
                     double value2 = input2.getVisibility() == View.VISIBLE ? Double.parseDouble(input2.getText().toString()) : 0;
+                    double value3 = input3.getVisibility() == View.VISIBLE ? Double.parseDouble(input2.getText().toString()) : 0;
                     double area = 0;
 
                     switch (shape.getName()) {
@@ -151,19 +212,39 @@ public class ShapeAdapter extends RecyclerView.Adapter<ShapeAdapter.ShapeViewHol
                         case "Rectangle":
                             area = value1 * value2;
                             break;
-                        case "Sphere":
-                            area = 4 * Math.PI * value1 * value1;
+                        case "Triangle":
+                            area = 0.5 * value1 * value2; // Assuming value1 is base and value2 is height
+                            break;
+                        case "Trapezoid":
+                            area = 0.5 * (value1 + value2) * value3; // Assuming value1 is base1, value2 is base2, and value3 is height
+                            break;
+                        case "Parallelogram":
+                            area = value1 * value2;
+                            break;
+                        //*************3D SHAPE GOES HERE
+                        case "Cuboid":
+                            area = value1 * value2 * value3;
                             break;
                         case "Cube":
-                            area = 6 * value1 * value1;
+                            area = value1 * value1 * value1;
+                            break;
+                        case "Prism":
+                            area = value1 * value2;
+                            break;
+                        case "Pyramid":
+                            area = 0.33 * value1 * value2;
                             break;
                         case "Cylinder":
-                            area = 2 * Math.PI * value1 * (value1 + value2);
+                            area = Math.PI * value1 * value1 * value2;
                             break;
-                        // Add more shapes and their area calculations as needed
+                        case "Sphere":
+                            area = 1.33 * Math.PI * value1 * value1 * value1;
+                            break;
+
                     }
 
-                    result.setText("Area: " + area);
+                    String formattedResult = String.format("%.2f", area);
+                    result.setText("Area: " + formattedResult);
                 } catch (NumberFormatException e) {
                     Toast.makeText(context, "Please enter valid numbers", Toast.LENGTH_SHORT).show();
                 }

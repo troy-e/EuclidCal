@@ -34,9 +34,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
                     Toast.makeText(LoginActivity.this, "Please enter both username and password", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (username.equals("Aly") && password.equals("aly2024")) {
+                    if (username.equals("alikha") && password.equals("2024")) {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        Toast.makeText(LoginActivity.this, "Hey Aly!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Hey Alikha!!!", Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                         finish();
                     } else {

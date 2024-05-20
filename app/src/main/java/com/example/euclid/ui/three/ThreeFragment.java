@@ -37,6 +37,9 @@ public class ThreeFragment extends Fragment {
         shapes.add(new Shape("Sphere"));
         shapes.add(new Shape("Cube"));
         shapes.add(new Shape("Cylinder"));
+        shapes.add(new Shape("Prism"));
+        shapes.add(new Shape("Cuboid"));
+        shapes.add(new Shape("Pyramid"));
         // Add more 3D shapes as needed
         return shapes;
     }

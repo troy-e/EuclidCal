@@ -3,13 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:backgroundTint="@color/sgreen"
+    android:background="@color/sgreen">
 
     <Button
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
+        android:backgroundTint="@color/dark"
         android:layout_gravity="start" />
 
     <ImageView
@@ -35,6 +38,14 @@
         android:inputType="numberDecimal"
         android:minHeight="48dp" />
 
+    <EditText
+        android:id="@+id/input3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Input 3"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp" />
+
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
@@ -47,5 +58,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calculate"
+        android:backgroundTint="@color/dark"
         android:layout_gravity="center" />
 </LinearLayout>
